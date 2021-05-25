@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Predicting toxicity in the statement</title>
+
+  <!-- Loading font types -->
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+</head>
+
+<body onload="myFunction()>
+ <div class="login">
+	<h1>Check the toxicity in the statement:</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input id='text' type="text" name="text" placeholder="Enter comment" required="required" size="25" style="font-size:20px;"/>
+
+		<button id='button' type="submit" class="btn btn-primary btn-block btn-large" style="font-size: 15px;"> Predict Toxicity</button>
+    </form>
+
+       <h3>	
+			{{ pred_toxic }} <br><br>
+			{{ pred_severe }} <br><br>
+			{{ pred_obscene }} <br><br>
+			{{ pred_insult }} <br><br>
+			{{ pred_threat }} <br><br>
+			{{ pred_identity }}
+		</h3>
+
+
+ </div>
+</body>
+</html>
